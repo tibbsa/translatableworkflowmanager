@@ -2,7 +2,6 @@
 
 namespace TibbsA\TranslatableWorkflowManager\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use TibbsA\TranslatableWorkflowManager\TranslatableWorkflowManager;
 use TibbsA\TranslatableWorkflowManager\Commands as TWMCommands;
 
@@ -28,7 +27,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            die('adding commands');
             $this->commands([
                 TWMCommands\ImportTranslations::class,
                 TWMCommands\ExportTranslations::class
