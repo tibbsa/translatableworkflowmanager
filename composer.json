@@ -1,0 +1,30 @@
+{
+    "name": "tibbsa/translatableworkflowmanager",
+    "type": "library",
+    "description": "Provides a mechanism for tracking needed translations and dispatching translation work to outside services.",
+    "keywords": [
+        "translatable",
+	"translation",
+	"laravel",
+	"eloquent"
+    ],
+    "homepage": "https://github.com/tibbsa/translatableworkflowmanager",
+    "license": "MIT",
+    "authors": [
+	{
+            "name": "Anthony Tibbs",
+            "email": "anthony@tibbs.ca",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+	"spatie/laravel-translatable": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TibbsA\\TranslatableWorkflowManager\\": "src"
+        }
+    }
+}
