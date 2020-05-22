@@ -3,7 +3,7 @@
 namespace TibbsA\TranslatableWorkflowManager\Commands;
 
 use Illuminate\Console\Command;
-use App\Library\Translation\TranslationManager;
+use TibbsA\TranslatableWorkflowManager\TranslatableWorkflowManager;
 
 class ExportTranslations extends Command
 {

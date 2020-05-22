@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use App\Library\Translation\TranslationManager;
+use TibbsA\TranslatableWorkflowManager\TranslatableWorkflowManager;
 
 class ImportTranslations extends Command
 {
