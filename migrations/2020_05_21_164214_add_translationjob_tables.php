@@ -18,13 +18,33 @@ class AddTranslationjobTables extends Migration
 
             $table->text('title');
             $table->text('notes')->nullable();
-            $table->enum('status', ['new', 'pending', 'reviewing', 'done']);
-            $table->json('jobcontents');
+            $table->enum('status', ['new', 'dispatched', 'cancelled', 'done']);
             $table->json('xlatprovider');
             $table->json('history')->nullable();
             
             $table->timestamps();
         });
+
+        Schema::create('translationjobbables', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedInteger('translationjob_id');
+            $table->unsignedInteger('translationjobbable_id');
+            $table->string('translationjobbable_type');
+
+            $table->foreign('translationjob_id')
+                  ->references('id')
+                  ->on('translationjobs')
+                  ->onDelete('cascade');
+
+            $table->index([
+                'translationjobbable_id',
+                'translationjobbable_type'
+            ]);
+
+            $table->timestamps();
+        });
+        
     }
 
     /**
@@ -34,6 +54,7 @@ class AddTranslationjobTables extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('translationjobbables');
         Schema::dropIfExists('translationjobs');
     }
 }
