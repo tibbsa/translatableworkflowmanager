@@ -39,7 +39,7 @@ class ImportTranslations extends Command
      *
      * @return void
      */
-    public function __construct(TranslationManager $tmgr)
+    public function __construct(TranslatableWorkflowManager $tmgr)
     {
         parent::__construct();
         $this->tmgr = $tmgr;
