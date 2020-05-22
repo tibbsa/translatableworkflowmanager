@@ -27,10 +27,10 @@
             "TibbsA\\TranslatableWorkflowManager\\": "src"
         }
     },
-    "extras": {
+    "extra": {
         "laravel": {
             "providers": [
-                "TibbsA\\TranslatableWorkflowManagerServiceProvider"
+                "TibbsA\\TranslatableWorkflowManager\\Providers\\ServiceProvider"
             ]
         }
     }
