@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
+use TibbsA\TranslatableWorkflowManager\Helpers\ModelFinder;
 
 class TranslatableWorkflowManager
 {
     static public function getManagedModels() : array
     {
-        $models = TranslatableWorkflowManager::enumModels(app_path('Models'));
+        $models = ModelFinder::hunt();
 
         $eligible_models = [];
         foreach ($models as $model_shortname) {
@@ -34,22 +35,6 @@ class TranslatableWorkflowManager
         }
 
         return $eligible_models;
-    }
-
-    static protected function enumModels($path)
-    {
-        $out = [];
-        $results = scandir($path);
-        foreach ($results as $result) {
-            if ($result === '.' or $result === '..') continue;
-            $filename = $path . '/' . $result;
-            if (is_dir($filename)) {
-                $out = array_merge($out, getModels($filename));
-            }else{
-                $out[] = (string) (Str::of($filename)->basename('.php'));
-            }
-        }
-        return $out;
     }
 
     static public function getTranslatableFieldsHash(Model $entity, string $lang) : string
